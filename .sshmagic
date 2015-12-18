@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# some ness for making the same instance of ssh-agent is accessible instead of
+# having to start a new instance and load keys for each shell. Also set up 
+# load-keys function.
+SSH_ENV="$HOME/.ssh/environment"
+[ -d $(dirname $SSH_ENV) ] || mkdir -p $(dirname $SSH_ENV)
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    #echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+function load-keys {
+    # Exclusion array for file patterns we know are not ssh keys
+    # Add any additional patterns to this array to exclude.
+    local -a EXCLUDE_PATTERNS=('"*.*"'
+	                       '"environment"'
+			       '"known_hosts"'
+			       '"config"'
+			       '"noload*"')
+    
+    echo Loading SSH keys into ssh-agent...
+    eval "find $HOME/.ssh/ -maxdepth 1 -type f \( $(printf " ! -iname %s" "${EXCLUDE_PATTERNS[@]}") \) -exec ssh-add {} \;"
+}
+
+# Source SSH settings, if applicable
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi

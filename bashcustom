@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Bash Customizations
+
+BASHCUSTOMDIR="$HOME/.bash.d"
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Source the various source files
+source $BASHCUSTOMDIR/.bash
+source $BASHCUSTOMDIR/.ps1
+source $BASHCUSTOMDIR/.sshmagic
+source $BASHCUSTOMDIR/aliases
+source $BASHCUSTOMDIR/ssh_aliases 2>&1 /dev/null || echo No ssh_aliases file set up in $BASHCUSTOMDIR

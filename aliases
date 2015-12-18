@@ -1,0 +1,28 @@
+#!/bin/bash
+# Terminal aliases
+
+# Generates a random password
+alias randpw='openssl rand -base64 16'
+
+# Aliases
+alias ls='ls --color=auto'
+alias dir='dir --color=auto' #comment these out on OSX
+alias vdir='vdir --color=auto' #comment these out on OSX
+alias grep='grep --color=auto' #comment these out on OSX
+alias fgrep='fgrep --color=auto' #comment these out on OSX
+alias egrep='egrep --color=auto' #comment these out on OSX
+
+#alias apt='aptitude'
+alias e='emacs -nw' # run emacs in the terminal
+alias ll='ls -lh' # handy shortcut for listing directory contents
+alias lll='ls -alh | less' # pipe 'ls -alh' to less
+alias lla='ls -lah'
+alias l='ls -CF'
+alias pws='cat ~/.pws | less'
+alias sudo='sudo ' # allow aliases to work with sudo
+alias g='git status'
+alias dm='docker-machine'
+
+# Compositing aliases (requires metacity and dconf editor)
+alias metacity-composite-no='dconf write /org/gnome/metacity/compositing-manager false'
+alias metacity-composite-yes='dconf write /org/gnome/metacity/compositing-manager true'

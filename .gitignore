@@ -1,0 +1,5 @@
+*~
+\#*
+
+## The following files should be considered system-local and should not be added to the repo.
+ssh_aliases
