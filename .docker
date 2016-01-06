@@ -1,0 +1,10 @@
+# Docker things
+
+# Helper functions
+function docker-rmi-all {
+    docker rmi $(docker images -aq)
+}
+
+function docker-rm-all {
+    docker rm $(docker ps -aq)
+}

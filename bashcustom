@@ -14,5 +14,6 @@ esac
 source $BASHCUSTOMDIR/.bash
 source $BASHCUSTOMDIR/.ps1
 source $BASHCUSTOMDIR/.sshmagic
+source $BASHCUSTOMDIR/.docker
 source $BASHCUSTOMDIR/aliases
 source $BASHCUSTOMDIR/ssh_aliases 2>&1 /dev/null || echo No ssh_aliases file set up in $BASHCUSTOMDIR
