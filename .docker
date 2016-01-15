@@ -1,3 +1,4 @@
+#!/bin/bash
 # Docker things
 
 # Helper functions
@@ -7,4 +8,25 @@ function docker-rmi-all {
 
 function docker-rm-all {
     docker rm $(docker ps -aq)
+}
+
+# docker-compose shortcuts
+function docker-build() {
+    docker-compose build "$@"
+}
+
+function docker-up() {
+    docker-compose up "$@"
+}
+
+function docker-kill() {
+    docker-compose kill "$@"
+}
+
+function docker-stop() {
+    docker-compose stop "$@"
+}
+
+function docker-run() {
+    docker-compose run "$@"
 }

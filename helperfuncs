@@ -1,0 +1,8 @@
+#!/bin/bash
+## Helper functions that don't really belong in any other file
+
+# Quickly find a string from ps aux, excluding the grep proc
+function grepps() {
+    local findme="$1"
+    ps aux | grep "[${findme:0:1}]${findme:1}"
+}
