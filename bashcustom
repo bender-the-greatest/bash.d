@@ -17,5 +17,6 @@ source $BASHCUSTOMDIR/.sshmagic
 source $BASHCUSTOMDIR/.docker
 source $BASHCUSTOMDIR/.countdown
 source $BASHCUSTOMDIR/aliases
+source $BASHCUSTOMDIR/helperfuncs
 source $BASHCUSTOMDIR/ssh_aliases 2>&1 /dev/null || echo No ssh_aliases file set up in $BASHCUSTOMDIR
 

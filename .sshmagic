@@ -22,7 +22,9 @@ function load-keys {
 	                       '"environment"'
 			       '"known_hosts"'
 			       '"config"'
-			       '"noload*"')
+			       '"noload*"'
+                               '"*~"'
+                               '"#*#"')
     
     echo Loading SSH keys into ssh-agent...
     eval "find $HOME/.ssh/ -maxdepth 1 -type f \( $(printf " ! -iname %s" "${EXCLUDE_PATTERNS[@]}") \) -exec ssh-add {} \;"
