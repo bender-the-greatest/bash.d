@@ -14,9 +14,9 @@ alias egrep='egrep --color=auto' #comment these out on OSX
 
 #alias apt='aptitude'
 alias e='emacs -nw' # run emacs in the terminal
-alias ll='ls -lh' # handy shortcut for listing directory contents
-alias lll='ls -alh | less' # pipe 'ls -alh' to less
-alias lla='ls -lah'
+alias ll='ls -lhB' # handy shortcut for listing directory contents
+alias lll='ls -alhB | less' # pipe 'ls -alh' to less
+alias lla='ls -lahB'
 alias l='ls -CF'
 alias pws='cat ~/.pws | less'
 alias sudo='sudo ' # allow aliases to work with sudo
