@@ -4,7 +4,7 @@ This is a project containing my customizations for the Bourne-again (bash) shell
 ## Installation
 Run these commands to install bash.d:
 
-1. `git clone git@github.com:metalseargolid/bash.d.git ~/.bash.d`
+1. `git clone git@github.com:metalseargolid/bash.d.git ~/.bash.d` or `git clone https://github.com/metalseargolid/bash.d.git`
 2. `echo "source ~/.bash.d/bashcustom" >> ~/.bashrc`
 3. `source ~/.bashrc`
 4. (Optional) `touch ~/.bash.d/ssh_aliases`
