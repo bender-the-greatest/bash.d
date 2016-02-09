@@ -8,7 +8,7 @@ Run these commands to install bash.d:
 2. `echo "source ~/.bash.d/bashcustom" >> ~/.bashrc`
 3. `source ~/.bashrc`
 4. (Optional) `touch ~/.bash.d/ssh_aliases`
-   * This file is similar to aliases, but I needed a way to separate my command aliases and ssh aliases so I could throw this on Github. Sorry, you don't get to see where I connect to!
+   * This file is similar to aliases, but I needed a way to separate my command aliases and ssh aliases so I could throw this on Github.
 
 That's it!
 
