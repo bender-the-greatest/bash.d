@@ -6,6 +6,7 @@ Run these commands to install bash.d:
 
 1. `git clone git@github.com:metalseargolid/bash.d.git ~/.bash.d` or `git clone https://github.com/metalseargolid/bash.d.git`
 2. `echo "source ~/.bash.d/bashcustom" >> ~/.bashrc`
+2a. If you use zsh you can source zshcustom instead, which just basically takes out the bash specific stuff.
 3. `source ~/.bashrc`
 4. (Optional) `touch ~/.bash.d/ssh_aliases`
    * This file is similar to aliases, but I needed a way to separate my command aliases and ssh aliases so I could throw this on Github.
