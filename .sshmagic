@@ -7,15 +7,6 @@ KERNEL=$(uname)
 SSH_ENV="$HOME/.ssh/environment"
 [ -d $(dirname $SSH_ENV) ] || mkdir -p $(dirname $SSH_ENV)
 
-function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    #echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-}
-
 function load-keys {
     # Exclusion array for file patterns we know are not ssh keys
     # Add any additional patterns to this array to exclude.
@@ -34,6 +25,16 @@ function load-keys {
     
     echo Loading SSH keys into ssh-agent...
     eval "find $HOME/.ssh/ -maxdepth 1 -type f \( $(printf " ! -iname %s" "${EXCLUDE_PATTERNS[@]}") \) -exec ssh-add {} \;"
+}
+
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    #echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    load-keys
 }
 
 # Source SSH settings, if applicable
