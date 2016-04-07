@@ -5,12 +5,12 @@
 alias randpw='openssl rand -base64 16'
 
 # Aliases
-alias ls='ls --color=auto'
-alias dir='dir --color=auto' #comment these out on OSX
-alias vdir='vdir --color=auto' #comment these out on OSX
-alias grep='grep --color=auto' #comment these out on OSX
-alias fgrep='fgrep --color=auto' #comment these out on OSX
-alias egrep='egrep --color=auto' #comment these out on OSX
+#alias ls='ls --color=auto'
+#alias dir='dir --color=auto' #comment these out on OSX
+#alias vdir='vdir --color=auto' #comment these out on OSX
+#alias grep='grep --color=auto' #comment these out on OSX
+#alias fgrep='fgrep --color=auto' #comment these out on OSX
+#alias egrep='egrep --color=auto' #comment these out on OSX
 
 #alias apt='aptitude'
 alias e='emacs -nw' # run emacs in the terminal

@@ -3,6 +3,7 @@
 # some ness for making the same instance of ssh-agent is accessible instead of
 # having to start a new instance and load keys for each shell. Also set up 
 # load-keys function.
+KERNEL=$(uname)
 SSH_ENV="$HOME/.ssh/environment"
 [ -d $(dirname $SSH_ENV) ] || mkdir -p $(dirname $SSH_ENV)
 
@@ -18,13 +19,18 @@ function start_agent {
 function load-keys {
     # Exclusion array for file patterns we know are not ssh keys
     # Add any additional patterns to this array to exclude.
-    local -a EXCLUDE_PATTERNS=('"*.*"'
-	                       '"environment"'
-			       '"known_hosts"'
-			       '"config"'
-			       '"noload*"'
-                               '"*~"'
-                               '"#*#"')
+
+    # For some reason zsh on OSX doesn't like direct initialization
+    # of the array on OSX
+    # (though this works totally fine on zsh in Linux)
+    # The below should work regardless of platform or zsh/bash
+    local -a EXCLUDE_PATTERNS;EXCLUDE_PATTERNS=('"*.*"'
+						'"environment"'
+						'"known_hosts"'
+						'"config"'
+						'"noload*"'
+						'"*~"'
+						'"#*#"')
     
     echo Loading SSH keys into ssh-agent...
     eval "find $HOME/.ssh/ -maxdepth 1 -type f \( $(printf " ! -iname %s" "${EXCLUDE_PATTERNS[@]}") \) -exec ssh-add {} \;"
