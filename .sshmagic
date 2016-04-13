@@ -34,6 +34,7 @@ function start_agent {
     #echo succeeded
     chmod 600 "${SSH_ENV}"
     . "${SSH_ENV}" > /dev/null
+    echo "Loading keys with 'load-keys' (Ctrl-C to cancel, load-keys can be manually called later)"
     load-keys
 }
 
